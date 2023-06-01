@@ -44,24 +44,32 @@ public class Main {
         checkOS(clientOS, clientDeviceYear);
     }
 
-    public static void calculationDelivery(int deliveryDistance) {
-        if (deliveryDistance > 100){
-            System.out.println("Доставка не осуществляется");
-        }
+    public static int calculationDelivery(int deliveryDistance) {
+        int day = 0;
         if (deliveryDistance <20) {
-            System.out.println("Доставка 1 сутки");
+            day++;
         }
         if (deliveryDistance >= 20 && deliveryDistance < 60) {
-            System.out.println("Доставка 2 дня");
+            day = day + 2;
         }
          if (deliveryDistance >=60 && deliveryDistance < 100) {
-            System.out.println("Доставка 3 дня");
+             day = day + 3;
         }
+         return day;
     }
     public static void task3() {
         System.out.println();
         System.out.println("Задача3");
-        int deliveryDistance = 1;
-        calculationDelivery(deliveryDistance);
+        int deliveryDistance = 77;
+
+        if (calculationDelivery(deliveryDistance) == 1) {
+            System.out.println("Доставка 1 сутки");
+        } else if (calculationDelivery(deliveryDistance) == 2) {
+            System.out.println("Доставка 2 дня");
+        } else if (calculationDelivery(deliveryDistance) == 3) {
+            System.out.println("Доставка 3 дня");
+        } else {
+            System.out.println("Доставка не осуществляется");
+        }
     }
 }
